@@ -1,32 +1,24 @@
 package com.tensquare.recruit.service;
 
+import com.tensquare.recruit.dao.EnterpriseDao;
+import com.tensquare.recruit.pojo.Enterprise;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
 import util.IdWorker;
-
-import com.tensquare.recruit.dao.EnterpriseDao;
-import com.tensquare.recruit.pojo.Enterprise;
 
 /**
  * enterprise服务层
- * 
+ *
  * @author Administrator
  *
  */
@@ -35,7 +27,7 @@ public class EnterpriseService {
 
 	@Autowired
 	private EnterpriseDao enterpriseDao;
-	
+
 	@Autowired
 	private IdWorker idWorker;
 
@@ -47,7 +39,7 @@ public class EnterpriseService {
 		return enterpriseDao.findAll();
 	}
 
-	
+
 	/**
 	 * 条件查询+分页
 	 * @param whereMap
@@ -61,7 +53,7 @@ public class EnterpriseService {
 		return enterpriseDao.findAll(specification, pageRequest);
 	}
 
-	
+
 	/**
 	 * 条件查询
 	 * @param whereMap
@@ -154,7 +146,7 @@ public class EnterpriseService {
                 if (searchMap.get("url")!=null && !"".equals(searchMap.get("url"))) {
                 	predicateList.add(cb.like(root.get("url").as(String.class), "%"+(String)searchMap.get("url")+"%"));
                 }
-				
+
 				return cb.and( predicateList.toArray(new Predicate[predicateList.size()]));
 
 			}
@@ -162,4 +154,7 @@ public class EnterpriseService {
 
 	}
 
+	public List<Enterprise> findHostList() {
+		return enterpriseDao.findByIshot("1");
+	}
 }

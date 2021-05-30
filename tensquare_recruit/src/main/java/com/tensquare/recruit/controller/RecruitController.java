@@ -1,9 +1,11 @@
 package com.tensquare.recruit.controller;
+
 import com.tensquare.recruit.pojo.Recruit;
 import com.tensquare.recruit.service.RecruitService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -99,6 +101,18 @@ public class RecruitController {
 	public Result delete(@PathVariable String id){
 		recruitService.deleteById(id);
 		return new Result(true,StatusCode.OK,"删除成功");
+	}
+
+	@RequestMapping(value = "/search/recommend", method = RequestMethod.GET)
+	public Result recommend() {
+		List<Recruit> recommendList = recruitService.findTop4ByStateOrderByCreationTime("2");
+		return Result.success(recommendList);
+	}
+
+	@RequestMapping(value = "/search/newlist", method = RequestMethod.GET)
+	public Result newlist() {
+		List<Recruit> newList = recruitService.findTop12ByStateOrderByCreationTimeDesc();
+		return Result.success(newList);
 	}
 
 }
