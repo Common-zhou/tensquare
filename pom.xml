@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.beiwu</groupId>
+    <groupId>com.tensquare</groupId>
     <artifactId>tensquare</artifactId>
     <version>1.0</version>
     <modules>
@@ -12,6 +12,7 @@
         <module>tensquare_base</module>
         <module>tensquare_recruit</module>
         <module>tensquare_qa</module>
+        <module>tensquare_spit</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>tensquare</artifactId>
-		<groupId>com.beiwu</groupId>
+		<groupId>com.tensquare</groupId>
 		<version>1.0</version>
 	</parent>
   <artifactId>tensquare_recruit</artifactId>
@@ -16,7 +16,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 	  <dependency>
-		  <groupId>com.beiwu</groupId>
+		  <groupId>com.tensquare</groupId>
 		  <artifactId>tensquare_common</artifactId>
 		  <version>1.0</version>
 	  </dependency>
