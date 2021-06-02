@@ -1,0 +1,7 @@
+server:
+  port: 9004
+spring:
+  data:
+    mongodb:
+      host: 192.168.100.21
+      database: articledb

@@ -80,4 +80,10 @@ public class SpitController {
         return Result.success(new PageResult<Spit>(res.getTotalElements(), res.getContent()));
     }
 
+    @RequestMapping(value = "/thumbup/{spitId}", method = RequestMethod.PUT)
+    public Result updateThumbup(@PathVariable("spitId") String spitId) {
+        spitService.updateThumbup2(spitId);
+        return Result.success(null);
+    }
+
 }
